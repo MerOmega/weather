@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.text{
+   position: relative;
+    z-index: 1001;
+    letter-spacing: 0.2em;
+    font-size: 0.8em;
+}
+.container{
+    max-width: 400px !important;
+}
+.day{
+    background-color: rgb(148, 195, 236);
+}
+
+.after{
+    background-color: rgb(226, 159, 83);
+}
+
+.night{
+    background-color: #000;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+}
+
+body .wave{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url(source/wave.png);
+    background-size:1000px 100px;
+}
+
+body .wave.wave1{
+    animation: animate 30s linear infinite;
+    z-index: 1000;
+    opacity: 1;
+    animation-delay: 0s;
+    bottom: 0;
+
+}
+body .wave.wave2{
+    animation: animate2 15s linear infinite;
+    z-index: 999;
+    opacity: 0.5;
+    animation-delay: -5s;
+    bottom: 0;
+
+}
+body .wave.wave3{
+    animation: animate3 15s linear infinite;
+    z-index: 998;
+    opacity: 0.2;
+    animation-delay: -2s;
+    bottom: 15;
+
+}
+body .wave.wave4{
+    animation: animate2 9s linear infinite;
+    z-index: 997;
+    opacity: 0.7;
+    animation-delay: 5s;
+    bottom: 20;
+
+}
+@keyframes animate
+{
+    0%
+    {
+        background-position:0px;
+    }
+    100%
+    {
+        background-position-x:1000px;
+    }
+}
+@keyframes animate2
+{
+    0%
+    {
+        background-position:0px;
+    }
+    100%
+    {
+        background-position-x:-1000px;
+    }
+}
+@keyframes animate3
+{
+    0%
+    {
+        background-position:0px;
+    }
+    100%
+    {
+        background-position-x:-1000px;
+    }
+}
+
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+
+.stars, .twinkling {
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+.stars {
+  background:#000 url(source/stars.png) repeat top center;
+  z-index:0;
+}
+
+.twinkling{
+  background:transparent url(source/twinkling.png) repeat top center;
+  z-index:1;
+  animation:move-twink-back 200s linear infinite;
+}
+body::-webkit-scrollbar
+{
+    display: none;
+}
