@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .text{
@@ -37,6 +38,12 @@ body .wave{
     height: 100px;
     background: url(source/wave.png);
     background-size:1000px 100px;
+}
+.icon{
+    position: relative;
+    top:-2.5rem;
+    border-radius: 50%;
+    margin-bottom: -2rem;
 }
 
 body .wave.wave1{
