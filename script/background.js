@@ -51,11 +51,7 @@ const updateUI = (data) => {
     //destructure
     const { cityDets, weather } = data;
     //update templates
-<<<<<<< HEAD
-    details.innerHTML=`
-=======
     details.innerHTML = `
->>>>>>> master
     <h5 class="my-3">${cityDets.EnglishName},${cityDets.Country.EnglishName}</h5>
     <div class="my-3">${weather.WeatherText}</div>
     <div class="display-4 my-4">
@@ -66,17 +62,6 @@ const updateUI = (data) => {
     const iconSrc = `img/icons/${weather.WeatherIcon}.svg`
     icon.setAttribute("src", iconSrc)
     //no se porque esta al reves
-<<<<<<< HEAD
-    let timeSrc=null;
-    weather.IsDayTime? timeSrc = "img/day.svg":timeSrc="img/night.svg";
-    time.setAttribute("src",timeSrc);
-}
-const mapa = ()=>{
-    navigator.geolocation.getCurrentPosition(data=>{
-        let place = new Place(data.coords.latitude,data.coords.longitude);
-        localStorage.setItem("MyPlace",JSON.stringify(place));
-    })
-=======
     let timeSrc = null;
     weather.IsDayTime ? timeSrc = "img/day.svg" : timeSrc = "img/night.svg";
     time.setAttribute("src", timeSrc);
@@ -87,7 +72,6 @@ const mapa = async () => {
         resolve(place)
     }))
     return place
->>>>>>> master
 };
 
 const say = async () => {
@@ -97,22 +81,12 @@ const say = async () => {
     return data
 }
 
-<<<<<<< HEAD
-mapa();
-
-//data.plus_code.compound_code
-say()
-    .then(data=>updateCity(data.address.city)) //.then(data=>{updateCity(data.address.city)}) NO USAR {} intenta resolver la siguiente promesa sin valor
-    .then(data=>{updateUI(data)})
-    .catch(err=>console.log(err))
-=======
 
 //data.plus_code.compound_code
 say()
     .then(data => updateCity(data.address.city)) //.then(data=>{updateCity(data.address.city)}) NO USAR {} intenta resolver la siguiente promesa sin valor
     .then(data => { updateUI(data) })
     .catch(err => console.log(err))
->>>>>>> master
 
 
 cityForm.addEventListener("submit", (e) => {
@@ -121,11 +95,6 @@ cityForm.addEventListener("submit", (e) => {
     cityForm.reset();
     // update ui
     updateCity(city)
-<<<<<<< HEAD
-    .then(data=>updateUI(data))
-    .catch(err=>console.log(err));
-=======
         .then(data => updateUI(data))
         .catch(err => console.log(err));
->>>>>>> master
 })
