@@ -56,7 +56,7 @@ const updateUI= (data)=>{
 
     //update templates
     details.innerHTML=`
-    <h5 class="my-3">${cityDets.EnglishName}</h5>
+    <h5 class="my-3">${cityDets.EnglishName},${cityDets.Country.EnglishName}</h5>
     <div class="my-3">${weather.WeatherText}</div>
     <div class="display-4 my-4">
         <span>${weather.Temperature.Metric.Value}</span>
@@ -69,12 +69,10 @@ const updateUI= (data)=>{
     let timeSrc=null;
     weather.IsDayTime? timeSrc = "img/day.svg":timeSrc="img/night.svg";
     time.setAttribute("src",timeSrc);
-
 }
 const mapa = ()=>{
     navigator.geolocation.getCurrentPosition(data=>{
         let place = new Place(data.coords.latitude,data.coords.longitude);
-        console.log(place)
         localStorage.setItem("MyPlace",JSON.stringify(place));
     })
 };
@@ -87,12 +85,12 @@ const data = await response.json();
 return data 
 }
 
-
+mapa();
 
 //data.plus_code.compound_code
 say()
     .then(data=>updateCity(data.address.city)) //.then(data=>{updateCity(data.address.city)}) NO USAR {} intenta resolver la siguiente promesa sin valor
-    .then(data=>updateUI(data))
+    .then(data=>{updateUI(data)})
     .catch(err=>console.log(err))
 
 
